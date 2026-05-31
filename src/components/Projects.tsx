@@ -55,9 +55,6 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-cyan-500/20 to-transparent" />
-                <span className="text-5xl font-bold text-gray-300 dark:text-gray-700 select-none group-hover:scale-110 transition-transform duration-300">
-                  {project.title.charAt(0)}
-                </span>
                 <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <span className="text-xs px-2 py-1 rounded-md bg-white/90 dark:bg-gray-900/90 text-gray-700 dark:text-gray-300 backdrop-blur-sm">
                     Ver detalle →
@@ -132,9 +129,6 @@ export default function Projects() {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-                <span className="text-4xl font-bold text-gray-300 dark:text-gray-700 select-none">
-                  {project.title.charAt(0)}
-                </span>
               </div>
 
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
