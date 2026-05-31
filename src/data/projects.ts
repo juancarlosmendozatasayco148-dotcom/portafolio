@@ -12,16 +12,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "ecommerce-platform",
-    title: "E-Commerce Platform",
+    id: "insightpdf",
+    title: "InsightPDF",
     description:
-      "Plataforma de comercio electrónico completa con carrito de compras, pagos y panel de administración.",
+      "Analiza documentos PDF con inteligencia artificial. Sube tu PDF y obtén resúmenes inteligentes, extracción de insights y un chat contextual.",
     longDescription:
-      "Una plataforma de comercio electrónico full-stack construida con Next.js y Node.js. Incluye autenticación de usuarios, catálogo de productos, carrito de compras, procesamiento de pagos con Stripe, y un panel de administración para gestionar productos y pedidos.",
-    image: "/projects/ecommerce.jpg",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL", "Tailwind CSS"],
-    githubUrl: "https://github.com/tuusuario/ecommerce",
-    liveUrl: "https://ecommerce-demo.vercel.app",
+      "InsightPDF es una aplicación web que permite analizar documentos PDF de hasta 10MB utilizando Google Gemini AI. Ofrece resúmenes en tres niveles de detalle (corto, medio y detallado), extracción automática de conceptos clave, conexiones entre ideas, datos relevantes y un chat contextual inteligente para hacer preguntas sobre el contenido del documento. Sin necesidad de registro, completamente gratuito y con procesamiento en segundos.",
+    image: "/projects/insightpdf.jpg",
+    tags: ["Next.js", "TypeScript", "Google Gemini", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/juancarlosmendozatasayco148-dotcom/insightpdf",
+    liveUrl: "https://insightpdf-swart.vercel.app/",
     featured: true,
   },
   {
