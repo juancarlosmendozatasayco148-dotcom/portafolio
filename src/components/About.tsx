@@ -46,25 +46,27 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-4">
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-                Soy un desarrollador de software con experiencia en la creación
-                de aplicaciones web completas, desde el frontend hasta el
-                backend. Me apasiona resolver problemas complejos y convertir
-                ideas en productos digitales funcionales y atractivos.
+                Desarrollador Full Stack en formación con experiencia en la
+                creación y mantenimiento de sitios web. Cuento con conocimientos
+                en Next.js, React, JavaScript, PHP, HTML, CSS y MySQL,
+                participando tanto en el desarrollo de interfaces de usuario
+                como en la implementación de funcionalidades del lado del
+                servidor y la gestión de bases de datos.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                Con más de 1 año de experiencia trabajando con startups y
-                empresas tecnológicas, he aprendido que la clave está en
-                entender las necesidades del usuario y traducirlas en soluciones
-                técnicas efectivas.
+                Destaco por mi capacidad de aprendizaje, resolución de problemas
+                y trabajo en equipo. Mi objetivo es seguir creciendo
+                profesionalmente y aportar al desarrollo de soluciones web
+                modernas, eficientes y escalables.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 dark:bg-green-900/20 text-sm text-gray-600 dark:text-gray-400 border border-green-200 dark:border-green-800">
                   <span className="w-2 h-2 rounded-full bg-green-500" />
-                  1 año experiencia
+                  2 años experiencia
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-sm text-gray-600 dark:text-gray-400 border border-blue-200 dark:border-blue-800">
                   <span className="w-2 h-2 rounded-full bg-blue-500" />
-                  6 proyectos
+                  1 proyecto destacado
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-sm text-gray-600 dark:text-gray-400 border border-cyan-200 dark:border-cyan-800">
                   <span className="w-2 h-2 rounded-full bg-cyan-500" />

@@ -1,4 +1,4 @@
-export interface Experience {
+﻿export interface Experience {
   id: string;
   company: string;
   position: string;
@@ -12,46 +12,31 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    company: "TechCorp Inc.",
-    position: "Desarrollador Full Stack Senior",
-    location: "Lima, Perú",
-    startDate: "Ene 2023",
-    endDate: null,
+    company: "Visual Creativa Producciones",
+    position: "Frontend Developer",
+    location: "",
+    startDate: "Ene 2025",
+    endDate: "Jun 2025",
     description: [
-      "Lideré el desarrollo de una plataforma SaaS que generó $2M en ingresos anuales.",
-      "Arquitecté e implementé microservicios escalables con Node.js y PostgreSQL.",
-      "Mentoreé a 4 desarrolladores junior, mejorando la productividad del equipo en un 30%.",
-      "Implementé CI/CD con GitHub Actions reduciendo el tiempo de despliegue en un 60%.",
+      "Desarrollé funcionalidades utilizando PHP, HTML, CSS, JavaScript y MySQL, contribuyendo a la optimización de procesos y gestión de información.",
+      "Diseñé e implementé interfaces web funcionales y adaptables, enfocadas en mejorar la experiencia del usuario.",
+      "Participé en la implementación de nuevas funcionalidades, corrección de errores y mejora continua de los sitios web según los requerimientos del negocio.",
     ],
-    technologies: ["Next.js", "Node.js", "PostgreSQL", "Docker", "AWS"],
+    technologies: ["PHP", "HTML", "CSS", "JavaScript", "MySQL"],
   },
   {
     id: "exp-2",
-    company: "StartupXYZ",
-    position: "Desarrollador Full Stack",
-    location: "Remoto",
-    startDate: "Jun 2021",
-    endDate: "Dic 2022",
+    company: "Práctica Profesional",
+    position: "Practicante Full Stack",
+    location: "",
+    startDate: "2024",
+    endDate: "2025",
     description: [
-      "Construí desde cero una aplicación web utilizada por más de 10,000 usuarios.",
-      "Desarrollé APIs RESTful y GraphQL con autenticación OAuth2 y JWT.",
-      "Optimicé el rendimiento frontend logrando un Lighthouse score de 98.",
-      "Colaboré en la migración de una arquitectura monolítica a microservicios.",
+      "Participé en el desarrollo de aplicaciones web Full Stack utilizando Next.js, JavaScript y MySQL.",
+      "Diseñé e implementé interfaces de usuario dinámicas y responsivas, enfocadas en la experiencia del usuario.",
+      "Desarrollé funcionalidades backend para la gestión de datos, integración con bases de datos y lógica de negocio.",
+      "Colaboré en el mantenimiento, optimización y despliegue de aplicaciones web para diferentes necesidades empresariales.",
     ],
-    technologies: ["React", "GraphQL", "MongoDB", "Redis", "TypeScript"],
-  },
-  {
-    id: "exp-3",
-    company: "WebAgency",
-    position: "Desarrollador Frontend",
-    location: "Guadalajara, MX",
-    startDate: "Mar 2020",
-    endDate: "May 2021",
-    description: [
-      "Desarrollé interfaces responsivas y accesibles para más de 15 proyectos cliente.",
-      "Implementé un sistema de diseño reutilizable que redujo el tiempo de desarrollo en un 40%.",
-      "Integré animaciones complejas con Framer Motion y animaciones CSS.",
-    ],
-    technologies: ["React", "Sass", "Framer Motion", "Figma", "Storybook"],
+    technologies: ["Next.js", "JavaScript", "MySQL", "React"],
   },
 ];

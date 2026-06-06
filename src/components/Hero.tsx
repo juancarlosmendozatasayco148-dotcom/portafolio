@@ -99,10 +99,6 @@ export default function Hero() {
             sequence={[
               "Desarrollador Full Stack",
               2000,
-              "Ingeniero de Software",
-              2000,
-              "Creador de Soluciones",
-              2000,
             ]}
             wrapper="span"
             speed={50}
@@ -116,8 +112,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-10"
         >
-          Construyo aplicaciones web modernas y escalables con tecnologías de
-          vanguardia. Apasionado por crear experiencias digitales excepcionales.
+          Construyo aplicaciones web modernas con tecnologías como Next.js, React y Node.js. Apasionado por crear soluciones funcionales y escalables.
         </motion.p>
 
         <motion.div
