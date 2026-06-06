@@ -12,6 +12,19 @@
 
 export const projects: Project[] = [
   {
+    id: "insightpdf",
+    title: "InsightPDF",
+    description:
+      "Analiza documentos PDF con inteligencia artificial. Sube tu PDF y obtén resúmenes inteligentes, extracción de insights y un chat contextual.",
+    longDescription:
+      "InsightPDF es una aplicación web que permite analizar documentos PDF de hasta 10MB utilizando Google Gemini AI. Ofrece resúmenes en tres niveles de detalle (corto, medio y detallado), extracción automática de conceptos clave, conexiones entre ideas, datos relevantes y un chat contextual inteligente para hacer preguntas sobre el contenido del documento. Sin necesidad de registro, completamente gratuito y con procesamiento en segundos.",
+    image: "/projects/insightpdf.jpg",
+    tags: ["Next.js", "TypeScript", "Google Gemini", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/juancarlosmendozatasayco148-dotcom/insightpdf",
+    liveUrl: "https://insightpdf-swart.vercel.app/",
+    featured: true,
+  },
+  {
     id: "ecommerce-tech",
     title: "E-Commerce de Tecnología",
     description:
