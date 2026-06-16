@@ -33,6 +33,7 @@ export const projects: Project[] = [
       "Trabajé como Frontend Developer freelance en un proyecto de e-commerce del sector tecnológico, desarrollando la interfaz de usuario con React y Next.js. Implementé componentes reutilizables, diseño responsive y optimización de rendimiento para mejorar la experiencia del usuario. Integré servicios y APIs REST para la gestión de productos, autenticación de usuarios y procesos de compra.",
     image: "/projects/ecommerce.jpg",
     tags: ["React", "Next.js", "JavaScript", "REST APIs", "Tailwind CSS"],
+    liveUrl: "https://ecommerce-electronics-pearl.vercel.app/",
     featured: true,
   },
 ];
