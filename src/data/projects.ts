@@ -25,6 +25,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "veterinaria",
+    title: "NaturaVet",
+    description:
+      "Landing page para clínica veterinaria con enfoque natural. Diseño moderno y cálido con servicios, equipo, testimonios y galería.",
+    longDescription:
+      "Sitio web completo para clínica veterinaria NaturaVet. Incluye diseño responsivo, galería de imágenes, sistema de testimonios, sección de preguntas frecuentes y formulario de contacto con integración WhatsApp. Desarrollado con Next.js y Tailwind CSS.",
+    image: "/projects/veterinaria.jpg",
+    tags: ["Next.js", "Tailwind CSS", "JavaScript", "Responsive Design"],
+    liveUrl: "https://veterinaria-rouge.vercel.app/",
+    featured: true,
+  },
+  {
     id: "ecommerce-tech",
     title: "E-Commerce de Tecnología",
     description:
