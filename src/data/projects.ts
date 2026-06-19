@@ -25,6 +25,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "ferreo-gym",
+    title: "Férreo Gym & Box",
+    description:
+      "Landing page para gimnasio con boxeo, cross training y pesa libre. Diseño moderno con planes, horarios, staff y testimonios.",
+    longDescription:
+      "Sitio web completo para Férreo Gym & Box. Incluye secciones de clases, horarios semanales, staff de entrenadores, planes de membresía sin permanencia, testimonios y formulario de contacto. Desarrollado con Next.js y Tailwind CSS con un diseño oscuro y agresivo acorde a la marca.",
+    image: "/projects/ferreo-gym.jpg",
+    tags: ["Next.js", "Tailwind CSS", "JavaScript", "Responsive Design"],
+    liveUrl: "https://ferreo-gym.vercel.app/",
+    featured: true,
+  },
+  {
     id: "veterinaria",
     title: "NaturaVet",
     description:
