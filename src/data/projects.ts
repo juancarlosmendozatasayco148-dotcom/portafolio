@@ -25,6 +25,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "cafe",
+    title: "Café Aroma",
+    description:
+      "Landing page acogedora para cafetería artesanal. Diseño cálido con menú, galería y ubicación.",
+    longDescription:
+      "Sitio web para cafetería artesanal Café Aroma. Incluye menú digital con categorías, galería de imágenes del local, información de contacto y ubicación con mapa interactivo. Desarrollado con Next.js y Tailwind CSS con una estética cálida y minimalista.",
+    image: "/projects/cafe.jpg",
+    tags: ["Next.js", "Tailwind CSS", "JavaScript", "Responsive Design"],
+    liveUrl: "https://cafe-landing-liard.vercel.app/",
+    featured: true,
+  },
+  {
     id: "ferreo-gym",
     title: "Férreo Gym & Box",
     description:
