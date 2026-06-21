@@ -59,7 +59,8 @@ export default function Navbar() {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-[0.96]"
             >
               {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
             </button>

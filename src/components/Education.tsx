@@ -24,7 +24,7 @@ function EducationCard({
       transition={{ duration: 0.5, delay: index * 0.15 }}
     >
       <div className="group p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex gap-4 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-0.5">
-        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:shadow-cyan-500/30 transition-all duration-300">
+        <div className="size-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:shadow-cyan-500/30 transition-all duration-300">
           <HiAcademicCap className="text-white" size={22} />
         </div>
         <div className="flex-1">
@@ -37,8 +37,8 @@ function EducationCard({
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
             {edu.field}
           </p>
-          {edu.description && (
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+             {edu.description && (
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2 text-pretty">
               {edu.description}
             </p>
           )}
@@ -65,7 +65,7 @@ export default function Education() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Educación
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />

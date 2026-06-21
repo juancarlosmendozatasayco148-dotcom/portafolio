@@ -81,7 +81,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6"
+          className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 text-balance"
         >
           Hola, soy{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient">
@@ -110,7 +110,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-10"
+          className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-10 text-pretty"
         >
           Construyo aplicaciones web modernas con tecnologías como Next.js, React y Node.js. Apasionado por crear soluciones funcionales y escalables.
         </motion.p>
@@ -123,14 +123,14 @@ export default function Hero() {
         >
           <a
             href="#projects"
-            className="group relative px-8 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-cyan-400/20"
+            className="group relative px-8 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-cyan-400/20 active:scale-[0.96]"
           >
             <span className="relative z-10">Ver Proyectos</span>
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:border-cyan-500/50"
+            className="px-8 py-3 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:border-cyan-500/50 active:scale-[0.96]"
           >
             Contactar
           </a>

@@ -24,7 +24,7 @@ function TimelineItem({
       transition={{ duration: 0.5, delay: index * 0.15 }}
       className="relative pl-20"
     >
-      <div className="absolute left-4 top-1 w-10 h-10 rounded-full bg-white dark:bg-gray-900 border-2 border-cyan-500 flex items-center justify-center shadow-lg shadow-cyan-500/20 z-10">
+      <div className="absolute left-4 top-1 size-10 rounded-full bg-white dark:bg-gray-900 border-2 border-cyan-500 flex items-center justify-center shadow-lg shadow-cyan-500/20 z-10">
         <HiBriefcase className="text-cyan-500" size={16} />
       </div>
 
@@ -87,7 +87,7 @@ export default function Experience() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Experiencia
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />

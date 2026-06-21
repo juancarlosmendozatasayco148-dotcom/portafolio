@@ -25,7 +25,7 @@ export default function Projects() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Proyectos
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
@@ -48,7 +48,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
@@ -72,7 +72,7 @@ export default function Projects() {
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2 text-pretty">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5">
@@ -96,7 +96,7 @@ export default function Projects() {
         </AnimatedSection>
       </div>
 
-      <AnimatePresence>
+              <AnimatePresence initial={false}>
         {project && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -115,7 +115,8 @@ export default function Projects() {
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
+                aria-label="Cerrar"
+                className="absolute top-4 right-4 p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10 active:scale-[0.96]"
               >
                 <HiX size={20} />
               </button>
@@ -124,7 +125,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
@@ -156,7 +157,7 @@ export default function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-[0.96]"
                   >
                     <HiCode size={16} />
                     Código
@@ -167,7 +168,7 @@ export default function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium hover:opacity-90 transition-opacity"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-900 text-white dark:bg-white dark:text-gray-900 text-sm font-medium hover:opacity-90 transition-opacity active:scale-[0.96]"
                   >
                     <HiExternalLink size={16} />
                     Demo

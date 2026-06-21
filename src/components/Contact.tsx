@@ -25,11 +25,11 @@ export default function Contact() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Contacto
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
-            <p className="mt-4 text-gray-500 dark:text-gray-400">
+            <p className="mt-4 text-gray-500 dark:text-gray-400 text-pretty">
               ¿Tienes un proyecto en mente? Hablemos.
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function Contact() {
           <AnimatedSection delay={0.1}>
             <div className="space-y-8">
               <div className="flex items-start gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:shadow-cyan-500/30 transition-all duration-300">
+                <div className="size-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20 group-hover:scale-110 group-hover:shadow-cyan-500/30 transition-all duration-300">
                   <HiMail className="text-white" size={20} />
                 </div>
                 <div>
@@ -103,7 +103,7 @@ export default function Contact() {
               />
               <button
                 type="submit"
-                className="group relative flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-cyan-400/20"
+                className="group relative flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-cyan-400/20 active:scale-[0.96]"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <HiPaperAirplane size={16} className="rotate-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

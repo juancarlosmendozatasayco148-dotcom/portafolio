@@ -37,7 +37,7 @@ export default function About() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Sobre Mí
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
@@ -45,7 +45,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-4">
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg text-pretty">
                 Desarrollador Full Stack en formación con experiencia en la
                 creación y mantenimiento de sitios web. Cuento con conocimientos
                 en Next.js, React, JavaScript, PHP, HTML, CSS y MySQL,
@@ -53,7 +53,7 @@ export default function About() {
                 como en la implementación de funcionalidades del lado del
                 servidor y la gestión de bases de datos.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-pretty">
                 Destaco por mi capacidad de aprendizaje, resolución de problemas
                 y trabajo en equipo. Mi objetivo es seguir creciendo
                 profesionalmente y aportar al desarrollo de soluciones web
@@ -82,7 +82,7 @@ export default function About() {
                   className="group relative p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
+                  <div className="size-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
                     <item.icon className="text-white" size={20} />
                   </div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1 relative z-10">

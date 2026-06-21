@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, ReactNode } from "react";
+import { useRef, ReactNode, useEffect, useState } from "react";
 import { useInView, motion, Variants } from "framer-motion";
 
 interface Props {
@@ -46,14 +46,31 @@ const childVariants: Variants = {
   },
 };
 
+function usePrefersReducedMotion() {
+  const [prefersReduced, setPrefersReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReduced(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReduced(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+  return prefersReduced;
+}
+
 export default function AnimatedSection({
   children,
   className = "",
   delay = 0,
   stagger = false,
 }: Props) {
+  const prefersReduced = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  if (prefersReduced) {
+    return <div className={className}>{children}</div>;
+  }
 
   if (stagger) {
     return (

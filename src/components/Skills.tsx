@@ -15,7 +15,7 @@ function SkillBar({ name, level, index }: { name: string; level: number; index: 
         <span className="text-gray-700 dark:text-gray-300 font-medium">
           {name}
         </span>
-        <span className="text-gray-400">{level}%</span>
+        <span className="text-gray-400 tabular-nums">{level}%</span>
       </div>
       <div className="h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
         <motion.div
@@ -46,7 +46,7 @@ export default function Skills() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
               Skills
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
@@ -58,7 +58,7 @@ export default function Skills() {
             <AnimatedSection key={category.title} delay={ci * 0.15}>
               <div className="group p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-0.5">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
+                  <div className="size-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
                     {ci + 1}
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
