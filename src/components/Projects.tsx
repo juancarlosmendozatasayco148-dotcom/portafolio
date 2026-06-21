@@ -6,7 +6,7 @@ import { HiExternalLink, HiCode, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection, { childVariants } from "./AnimatedSection";
 
-function TiltCard({ children, className }: { children: React.ReactNode; className?: string }) {
+function ProjectCard({ project, onClick }: { project: { id: string; title: string; description: string; image: string; tags: string[]; featured: boolean }; onClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -28,24 +28,70 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
   }
 
   return (
-    <div
+    <motion.div
       ref={ref}
+      variants={childVariants}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={className}
-      style={{
-        perspective: "1000px",
-        transformStyle: "preserve-3d",
-      }}
+      onClick={onClick}
+      className="group relative rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 overflow-hidden cursor-pointer transition-all duration-300"
+      style={{ perspective: "800px" }}
     >
       <motion.div
         animate={{ rotateX, rotateY }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {children}
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
+        <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-600/20 flex items-center justify-center overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = 'none';
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:scale-110 transition-transform duration-500" />
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-cyan-500/20 to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+            <span className="text-xs px-2 py-1 rounded-md bg-white/90 dark:bg-gray-900/90 text-gray-700 dark:text-gray-300 backdrop-blur-sm">
+              Ver detalle →
+            </span>
+          </div>
+        </div>
+        <div className="relative p-5 bg-white dark:bg-gray-900">
+          <div className="flex items-center gap-2 mb-2">
+            {project.featured && (
+              <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
+                Destacado
+              </span>
+            )}
+          </div>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+            {project.title}
+          </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2 text-pretty">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {project.tags.slice(0, 4).map((tag) => (
+              <span
+                key={tag}
+                className="text-xs px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+              >
+                {tag}
+              </span>
+            ))}
+            {project.tags.length > 4 && (
+              <span className="text-xs px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                +{project.tags.length - 4}
+              </span>
+            )}
+          </div>
+        </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -80,62 +126,11 @@ export default function Projects() {
 
         <AnimatedSection stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <TiltCard key={project.id}>
-              <motion.div
-                variants={childVariants}
-                className="group relative rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 overflow-hidden cursor-pointer hover:-translate-y-1 transition-all duration-300"
-                onClick={() => setSelectedProject(project.id)}
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300" />
-                <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 via-blue-500/20 to-purple-600/20 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-cyan-500/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                    <span className="text-xs px-2 py-1 rounded-md bg-white/90 dark:bg-gray-900/90 text-gray-700 dark:text-gray-300 backdrop-blur-sm">
-                      Ver detalle →
-                    </span>
-                  </div>
-                </div>
-                <div className="relative p-5 bg-white dark:bg-gray-900">
-                  <div className="flex items-center gap-2 mb-2">
-                    {project.featured && (
-                      <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
-                        Destacado
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2 text-pretty">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 4).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 4 && (
-                      <span className="text-xs px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            </TiltCard>
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => setSelectedProject(project.id)}
+            />
           ))}
         </AnimatedSection>
       </div>
