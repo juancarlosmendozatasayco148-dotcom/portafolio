@@ -4,7 +4,7 @@ import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import BackToTop from "@/components/BackToTop";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -41,11 +41,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ScrollProgressBar />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <BackToTop />
+          <SmoothScroll>
+            <ScrollProgressBar />
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

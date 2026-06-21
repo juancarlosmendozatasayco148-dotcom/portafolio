@@ -1,9 +1,29 @@
 "use client";
 
-import { useRef } from "react";
-import { useInView, motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { useInView, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 import AnimatedSection from "./AnimatedSection";
+
+function AnimatedNumber({ value, isInView: inView }: { value: number; isInView: boolean }) {
+  const [displayed, setDisplayed] = useState(0);
+  const motionValue = useMotionValue(0);
+  const spring = useSpring(motionValue, { stiffness: 50, damping: 15 });
+  const rounded = useTransform(spring, (v) => Math.round(v));
+
+  useEffect(() => {
+    if (inView) {
+      motionValue.set(value);
+    }
+  }, [inView, value, motionValue]);
+
+  useEffect(() => {
+    const unsubscribe = rounded.on("change", (v) => setDisplayed(v));
+    return () => unsubscribe();
+  }, [rounded]);
+
+  return <span className="text-gray-400 tabular-nums">{displayed}%</span>;
+}
 
 function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,7 +35,7 @@ function SkillBar({ name, level, index }: { name: string; level: number; index: 
         <span className="text-gray-700 dark:text-gray-300 font-medium">
           {name}
         </span>
-        <span className="text-gray-400 tabular-nums">{level}%</span>
+        <AnimatedNumber value={level} isInView={isInView} />
       </div>
       <div className="h-2.5 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
         <motion.div

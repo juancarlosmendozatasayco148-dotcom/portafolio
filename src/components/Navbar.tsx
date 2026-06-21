@@ -37,7 +37,7 @@ export default function Navbar() {
             href="#hero"
             className="text-xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
           >
-            &lt;Dev /&gt;
+            devCarlos
           </a>
 
           <div className="hidden md:flex items-center gap-1">

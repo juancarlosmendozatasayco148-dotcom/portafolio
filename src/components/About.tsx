@@ -66,11 +66,11 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-sm text-gray-600 dark:text-gray-400 border border-blue-200 dark:border-blue-800">
                   <span className="w-2 h-2 rounded-full bg-blue-500" />
-                  1 proyecto destacado
+                  5 proyectos
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-sm text-gray-600 dark:text-gray-400 border border-cyan-200 dark:border-cyan-800">
                   <span className="w-2 h-2 rounded-full bg-cyan-500" />
-                  Remoto / Presencial
+                  Remoto
                 </div>
               </div>
             </div>

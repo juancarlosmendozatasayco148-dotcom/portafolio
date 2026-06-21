@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef, ReactNode, useEffect, useState } from "react";
-import { useInView, motion, Variants } from "framer-motion";
+import { useInView, motion, Variants, useScroll, useTransform } from "framer-motion";
 
 interface Props {
   children: ReactNode;
   className?: string;
   delay?: number;
   stagger?: boolean;
+  parallax?: boolean;
 }
 
 const defaultVariants: Variants = {
@@ -58,11 +59,27 @@ function usePrefersReducedMotion() {
   return prefersReduced;
 }
 
+function ParallaxWrapper({ children, className = "" }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
+
+  return (
+    <motion.div ref={ref} style={{ y }} className={className}>
+      {children}
+    </motion.div>
+  );
+}
+
 export default function AnimatedSection({
   children,
   className = "",
   delay = 0,
   stagger = false,
+  parallax = false,
 }: Props) {
   const prefersReduced = usePrefersReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
@@ -72,21 +89,17 @@ export default function AnimatedSection({
     return <div className={className}>{children}</div>;
   }
 
-  if (stagger) {
-    return (
-      <motion.div
-        ref={ref}
-        variants={staggerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    );
-  }
-
-  return (
+  const content = stagger ? (
+    <motion.div
+      ref={ref}
+      variants={staggerVariants}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  ) : (
     <motion.div
       ref={ref}
       custom={delay}
@@ -98,6 +111,12 @@ export default function AnimatedSection({
       {children}
     </motion.div>
   );
+
+  if (parallax) {
+    return <ParallaxWrapper>{content}</ParallaxWrapper>;
+  }
+
+  return content;
 }
 
 export { childVariants };
