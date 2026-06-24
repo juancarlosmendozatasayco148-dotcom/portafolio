@@ -25,6 +25,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "lumina",
+    title: "Lumina Festival",
+    description:
+      "Landing page para festival de arte, luz y sonido. Diseño inmersivo con experiencia visual impactante y contenido dinámico.",
+    longDescription:
+      "Sitio web para Lumina, un festival de arte, luz y sonido que ofrece una experiencia inmersiva única. La landing page presenta un diseño visual impactante con animaciones sutiles, tipografía moderna y una paleta de colores vibrante que refleja la energía del festival. Incluye secciones de lineup, experiencias, galería y formulario de contacto.",
+    image: "/projects/lumina.jpg",
+    tags: ["Next.js", "TypeScript", "Framer Motion", "Tailwind CSS", "Responsive Design"],
+    liveUrl: "https://lumina-alpha-gilt.vercel.app/",
+    featured: true,
+  },
+  {
     id: "cafe",
     title: "Café Aroma",
     description:
