@@ -84,4 +84,16 @@ export const projects: Project[] = [
     liveUrl: "https://ecommerce-electronics-pearl.vercel.app/",
     featured: true,
   },
+  {
+    id: "lune",
+    title: "LUNE",
+    description:
+      "Landing page para marca de moda minimalista. Diseño elegante con colección, esencia y voces de clientes.",
+    longDescription:
+      "Sitio web para LUNE, una marca de ropa que combina minimalismo atemporal con artesanía de calidad. La landing page presenta un diseño sofisticado con tipografía limpia, paleta neutra y animaciones sutiles. Incluye secciones de colección destacada, esencia de la marca (materiales nobles, confección artesanal, diseño atemporal), voces de clientes y formulario de suscripción.",
+    image: "/projects/lune.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive Design"],
+    liveUrl: "https://lune-dusky-six.vercel.app/",
+    featured: true,
+  },
 ];
