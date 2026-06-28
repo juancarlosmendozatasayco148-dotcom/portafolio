@@ -3,7 +3,6 @@
 import { useState, FormEvent } from "react";
 import { HiMail, HiPaperAirplane } from "react-icons/hi";
 import AnimatedSection from "./AnimatedSection";
-import SplitText from "./SplitText";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -25,17 +24,9 @@ export default function Contact() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
-            <SplitText
-              text="Contacto"
-              tag="h2"
-              splitType="words"
-              className="text-3xl sm:text-4xl font-serif text-balance mb-4 block"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              delay={80}
-              duration={1}
-              textAlign="center"
-            />
+            <h2 className="text-3xl sm:text-4xl font-serif text-balance mb-4">
+              Contacto
+            </h2>
             <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
             <p className="mt-4 text-gray-400 text-pretty">
               ¿Tienes un proyecto en mente? Hablemos.

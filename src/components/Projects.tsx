@@ -5,7 +5,6 @@ import { projects } from "@/data/projects";
 import { HiExternalLink, HiCode, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection, { childVariants } from "./AnimatedSection";
-import SplitText from "./SplitText";
 
 const ProjectCard = memo(function ProjectCard({ project, onClick }: { project: { id: string; title: string; description: string; image: string; tags: string[]; featured: boolean }; onClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -113,17 +112,9 @@ export default function Projects() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
-            <SplitText
-              text="Proyectos"
-              tag="h2"
-              splitType="words"
-              className="text-3xl sm:text-4xl font-serif text-balance mb-4 block"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              delay={80}
-              duration={1}
-              textAlign="center"
-            />
+            <h2 className="text-3xl sm:text-4xl font-serif text-balance mb-4">
+              Proyectos
+            </h2>
             <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
             <p className="mt-4 text-gray-400">
               Algunos de los proyectos en los que he trabajado

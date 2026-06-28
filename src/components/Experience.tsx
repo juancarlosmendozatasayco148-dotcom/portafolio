@@ -4,7 +4,6 @@ import { useRef, memo } from "react";
 import { useInView, motion } from "framer-motion";
 import { experiences } from "@/data/experience";
 import { HiBriefcase, HiCalendar } from "react-icons/hi";
-import SplitText from "./SplitText";
 
 const TimelineItem = memo(function TimelineItem({
   exp,
@@ -86,17 +85,9 @@ export default function Experience() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
-            <SplitText
-              text="Experiencia"
-              tag="h2"
-              splitType="words"
-              className="text-3xl sm:text-4xl font-serif text-balance mb-4 block"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              delay={80}
-              duration={1}
-              textAlign="center"
-            />
+            <h2 className="text-3xl sm:text-4xl font-serif text-balance mb-4">
+              Experiencia
+            </h2>
             <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
           </div>
 
