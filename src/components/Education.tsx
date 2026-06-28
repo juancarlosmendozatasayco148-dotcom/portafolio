@@ -68,7 +68,7 @@ export default function Education() {
               text="Educación"
               tag="h2"
               splitType="words"
-              className="text-3xl sm:text-4xl font-serif text-balance mb-4"
+              className="text-3xl sm:text-4xl font-serif text-balance mb-4 block"
               from={{ opacity: 0, y: 30 }}
               to={{ opacity: 1, y: 0 }}
               delay={80}
