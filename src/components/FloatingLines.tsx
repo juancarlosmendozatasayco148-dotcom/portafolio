@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+"use client";
+
+import { useEffect, useRef, useState } from 'react';
 import {
   Clock,
   Mesh,
@@ -298,22 +300,26 @@ export default function FloatingLines({
   const middleLineDistance = enabledWaves.includes('middle') ? getLineDistance('middle') * 0.01 : 0.01;
   const bottomLineDistance = enabledWaves.includes('bottom') ? getLineDistance('bottom') * 0.01 : 0.01;
 
+  const [hasError, setHasError] = useState(false);
+
   useEffect(() => {
+    if (hasError) return;
     const container = containerRef.current;
     if (!container) return;
 
     let active = true;
 
-    const scene = new Scene();
+    try {
+      const scene = new Scene();
 
-    const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    camera.position.z = 1;
+      const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
+      camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.domElement.style.width = '100%';
-    renderer.domElement.style.height = '100%';
-    container.appendChild(renderer.domElement);
+      const renderer = new WebGLRenderer({ antialias: true, alpha: false });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.domElement.style.width = '100%';
+      renderer.domElement.style.height = '100%';
+      container.appendChild(renderer.domElement);
 
     const uniforms = {
       iTime: { value: 0 },
@@ -483,7 +489,11 @@ export default function FloatingLines({
         renderer.domElement.parentElement.removeChild(renderer.domElement);
       }
     };
-  }, [
+    } catch (e) {
+      setHasError(true);
+      return () => { active = false; };
+    }
+  }, [hasError,
     linesGradient,
     enabledWaves,
     lineCount,
@@ -499,6 +509,8 @@ export default function FloatingLines({
     parallax,
     parallaxStrength
   ]);
+
+  if (hasError) return null;
 
   return (
     <div
