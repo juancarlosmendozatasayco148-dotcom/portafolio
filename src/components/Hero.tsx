@@ -19,8 +19,10 @@ export default function Hero() {
           lineCount={4}
           lineDistance={6}
           animationSpeed={0.4}
-          interactive={false}
-          parallax={false}
+          interactive={true}
+          parallax={true}
+          bendRadius={8}
+          bendStrength={-1}
           mixBlendMode="screen"
         />
       </div>
