@@ -2,7 +2,6 @@
 
 import { HiCode, HiCube, HiLightningBolt } from "react-icons/hi";
 import AnimatedSection from "./AnimatedSection";
-import DecryptedText from "./DecryptedText";
 
 const highlights = [
   {
@@ -50,15 +49,12 @@ export default function About() {
                 <span className="float-left text-5xl font-serif text-gold leading-none mr-3 mt-1">
                   D
                 </span>
-                <DecryptedText
-                  text="esarrollador Full Stack en formación con experiencia en la creación y mantenimiento de sitios web. Cuento con conocimientos en Next.js, React, JavaScript, PHP, HTML, CSS y MySQL, participando tanto en el desarrollo de interfaces de usuario como en la implementación de funcionalidades del lado del servidor y la gestión de bases de datos."
-                  animateOn="view"
-                  sequential
-                  revealDirection="start"
-                  speed={30}
-                  className="text-gray-400"
-                  encryptedClassName="text-gray-600"
-                />
+                esarrollador Full Stack en formación con experiencia en la
+                creación y mantenimiento de sitios web. Cuento con conocimientos
+                en Next.js, React, JavaScript, PHP, HTML, CSS y MySQL,
+                participando tanto en el desarrollo de interfaces de usuario
+                como en la implementación de funcionalidades del lado del
+                servidor y la gestión de bases de datos.
               </p>
               <p className="text-gray-400 leading-relaxed text-pretty font-light">
                 Destaco por mi capacidad de aprendizaje, resolución de problemas
