@@ -2,6 +2,7 @@
 
 import { HiCode, HiCube, HiLightningBolt } from "react-icons/hi";
 import AnimatedSection from "./AnimatedSection";
+import SplitText from "./SplitText";
 
 const highlights = [
   {
@@ -37,9 +38,17 @@ export default function About() {
               </span>
               <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-serif text-balance mb-4">
-              Sobre Mí
-            </h2>
+            <SplitText
+              text="Sobre Mí"
+              tag="h2"
+              splitType="words"
+              className="text-3xl sm:text-4xl font-serif text-balance mb-4"
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+              delay={80}
+              duration={1}
+              textAlign="center"
+            />
             <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
           </div>
 
