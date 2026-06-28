@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import SmoothScroll from "@/components/SmoothScroll";
-import BlobCursor from "@/components/BlobCursor";
+import Grainient from "@/components/Grainient";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -62,24 +62,30 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground antialiased selection:bg-gold/25 selection:text-foreground">
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <Grainient
+            color1="#0A0A0A"
+            color2="#1A1A1A"
+            color3="#C9A84C"
+            grainAmount={0.08}
+            grainScale={1.5}
+            grainAnimated={true}
+            timeSpeed={0.1}
+            warpStrength={0.3}
+            warpFrequency={3}
+            blendSoftness={0.1}
+            contrast={1.2}
+            saturation={0.5}
+            zoom={0.95}
+            colorBalance={-0.3}
+          />
+        </div>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >
-          <BlobCursor
-            fillColor="#C9A84C"
-            trailCount={3}
-            opacities={[0.3, 0.2, 0.1]}
-            sizes={[70, 120, 50]}
-            innerColor="rgba(240, 223, 160, 0.6)"
-            shadowColor="rgba(201, 168, 76, 0.3)"
-            shadowBlur={15}
-            fastDuration={0.15}
-            slowDuration={0.6}
-            zIndex={9999}
-          />
           <SmoothScroll>
             <ScrollProgressBar />
             <Navbar />
