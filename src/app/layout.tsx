@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import SmoothScroll from "@/components/SmoothScroll";
+import BlobCursor from "@/components/BlobCursor";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -67,6 +68,16 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <BlobCursor
+            fillColor="#C9A84C"
+            trailCount={3}
+            opacities={[0.12, 0.08, 0.04]}
+            sizes={[120, 200, 80]}
+            innerColor="rgba(240, 223, 160, 0.4)"
+            fastDuration={0.15}
+            slowDuration={0.6}
+            zIndex={9999}
+          />
           <SmoothScroll>
             <ScrollProgressBar />
             <Navbar />

@@ -1,31 +1,10 @@
 "use client";
 
-import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
 import Magnetic from "./Magnetic";
-
-function seededRandom(seed: number) {
-  let s = seed;
-  return () => {
-    s = (s * 16807) % 2147483647;
-    return (s - 1) / 2147483646;
-  };
-}
-
-const particles = Array.from({ length: 20 }, (_, i) => {
-  const rng = seededRandom(i * 7 + 13);
-  return {
-    id: i,
-    x: rng() * 100,
-    y: rng() * 100,
-    size: rng() * 2 + 1,
-    duration: rng() * 10 + 12,
-    delay: rng() * 8,
-    driftX: (rng() - 0.5) * 30,
-    driftY: (rng() - 0.5) * 30 - 10,
-  };
-});
+import ShinyText from "./ShinyText";
+import Aurora from "./Aurora";
 
 export default function Hero() {
   return (
@@ -33,33 +12,15 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-16"
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.02] to-transparent pointer-events-none" />
-
-      <div className="absolute inset-0 pointer-events-none">
-        {particles.map((p) => (
-          <motion.div
-            key={p.id}
-            className="absolute rounded-full bg-gold/20"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size * 2,
-              height: p.size * 2,
-            }}
-            animate={{
-              y: [0, p.driftY],
-              x: [0, p.driftX],
-              opacity: [0, 0.8, 0],
-            }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              delay: p.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+      <div className="absolute inset-0">
+        <Aurora
+          colorStops={["#C9A84C", "#A8882E", "#0A0A0A"]}
+          speed={0.5}
+          blend={0.3}
+          amplitude={0.8}
+        />
       </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
@@ -84,7 +45,14 @@ export default function Hero() {
 
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-balance mb-6 leading-[1.1]">
           <span className="text-foreground">Juan</span>{" "}
-          <span className="text-gold">Carlos</span>
+          <ShinyText
+            text="Carlos"
+            color="#C9A84C"
+            shineColor="#F0DFA0"
+            speed={3}
+            spread={80}
+            direction="left"
+          />
         </h1>
 
         <motion.p
