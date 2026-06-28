@@ -2,20 +2,9 @@
 
 import { useRef } from "react";
 import { useInView, motion } from "framer-motion";
+import { skillCategories } from "@/data/skills";
 
-interface RadarData {
-  label: string;
-  value: number;
-}
-
-const skills: RadarData[] = [
-  { label: "React", value: 80 },
-  { label: "Next.js", value: 75 },
-  { label: "JavaScript", value: 85 },
-  { label: "PHP", value: 70 },
-  { label: "MySQL", value: 75 },
-  { label: "Node.js", value: 60 },
-];
+const skills = skillCategories.flatMap((cat) => cat.skills);
 
 const SIZE = 280;
 const CENTER = SIZE / 2;
@@ -76,7 +65,7 @@ export default function RadarChart() {
         <motion.polygon
           points={skills
             .map((skill, i) => {
-              const p = polarToCartesian(CENTER, CENTER, (RADIUS * skill.value) / 100, angleStep * i);
+              const p = polarToCartesian(CENTER, CENTER, (RADIUS * skill.level) / 100, angleStep * i);
               return `${p.x},${p.y}`;
             })
             .join(" ")}
@@ -90,7 +79,7 @@ export default function RadarChart() {
         />
 
         {skills.map((skill, i) => {
-          const p = polarToCartesian(CENTER, CENTER, (RADIUS * skill.value) / 100, angleStep * i);
+          const p = polarToCartesian(CENTER, CENTER, (RADIUS * skill.level) / 100, angleStep * i);
           return (
             <motion.circle
               key={i}
@@ -118,7 +107,7 @@ export default function RadarChart() {
               fontSize={10}
               fontFamily="var(--font-mono)"
             >
-              {skill.label}
+              {skill.name}
             </text>
           );
         })}

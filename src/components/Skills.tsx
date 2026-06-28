@@ -1,30 +1,10 @@
 "use client";
 
-import { useRef, useEffect, useState, memo } from "react";
-import { useInView, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useRef, memo } from "react";
+import { useInView, motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 import AnimatedSection from "./AnimatedSection";
 import RadarChart from "./RadarChart";
-
-function AnimatedNumber({ value, isInView: inView }: { value: number; isInView: boolean }) {
-  const [displayed, setDisplayed] = useState(0);
-  const motionValue = useMotionValue(0);
-  const spring = useSpring(motionValue, { stiffness: 50, damping: 15 });
-  const rounded = useTransform(spring, (v) => Math.round(v));
-
-  useEffect(() => {
-    if (inView) {
-      motionValue.set(value);
-    }
-  }, [inView, value, motionValue]);
-
-  useEffect(() => {
-    const unsubscribe = rounded.on("change", (v) => setDisplayed(v));
-    return () => unsubscribe();
-  }, [rounded]);
-
-  return <span className="text-gray-500 tabular-nums">{displayed}%</span>;
-}
 
 const SkillBar = memo(function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -36,7 +16,6 @@ const SkillBar = memo(function SkillBar({ name, level, index }: { name: string; 
         <span className="text-gray-300 font-mono text-xs tracking-wide">
           {name}
         </span>
-        <AnimatedNumber value={level} isInView={isInView} />
       </div>
       <div className="h-1.5 bg-border rounded-full overflow-hidden">
         <motion.div
