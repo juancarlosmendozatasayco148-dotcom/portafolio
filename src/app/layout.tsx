@@ -71,8 +71,8 @@ export default function RootLayout({
           <BlobCursor
             fillColor="#C9A84C"
             trailCount={3}
-            opacities={[0.4, 0.25, 0.12]}
-            sizes={[100, 160, 70]}
+            opacities={[0.3, 0.2, 0.1]}
+            sizes={[70, 120, 50]}
             innerColor="rgba(240, 223, 160, 0.6)"
             shadowColor="rgba(201, 168, 76, 0.3)"
             shadowBlur={15}
