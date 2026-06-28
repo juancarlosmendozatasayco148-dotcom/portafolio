@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
 import Magnetic from "./Magnetic";
+import dynamic from "next/dynamic";
 import ShinyText from "./ShinyText";
-import FloatingLines from "./FloatingLines";
+
+const FloatingLines = dynamic(() => import("./FloatingLines"), { ssr: false });
 
 export default function Hero() {
   return (
