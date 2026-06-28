@@ -31,45 +31,48 @@ export default function About() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-px w-8 bg-gradient-to-r from-transparent to-cyan-500" />
-              <span className="text-xs font-semibold tracking-widest uppercase text-cyan-600 dark:text-cyan-400">
+              <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-gold">
                 Acerca de
               </span>
-              <span className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-500" />
+              <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl font-serif text-balance mb-4">
               Sobre Mí
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full" />
+            <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-4">
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg text-pretty">
-                Desarrollador Full Stack en formación con experiencia en la
+              <p className="text-gray-400 leading-relaxed text-lg text-pretty font-light">
+                <span className="float-left text-5xl font-serif text-gold leading-none mr-3 mt-1">
+                  D
+                </span>
+                esarrollador Full Stack en formación con experiencia en la
                 creación y mantenimiento de sitios web. Cuento con conocimientos
                 en Next.js, React, JavaScript, PHP, HTML, CSS y MySQL,
                 participando tanto en el desarrollo de interfaces de usuario
                 como en la implementación de funcionalidades del lado del
                 servidor y la gestión de bases de datos.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-pretty">
+              <p className="text-gray-400 leading-relaxed text-pretty font-light">
                 Destaco por mi capacidad de aprendizaje, resolución de problemas
                 y trabajo en equipo. Mi objetivo es seguir creciendo
                 profesionalmente y aportar al desarrollo de soluciones web
                 modernas, eficientes y escalables.
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 dark:bg-green-900/20 text-sm text-gray-600 dark:text-gray-400 border border-green-200 dark:border-green-800">
-                  <span className="w-2 h-2 rounded-full bg-green-500" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 text-sm text-gold-light border border-gold/20">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
                   2 años experiencia
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-sm text-gray-600 dark:text-gray-400 border border-blue-200 dark:border-blue-800">
-                  <span className="w-2 h-2 rounded-full bg-blue-500" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 text-sm text-gold-light border border-gold/20">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
                   6 proyectos
                 </div>
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-sm text-gray-600 dark:text-gray-400 border border-cyan-200 dark:border-cyan-800">
-                  <span className="w-2 h-2 rounded-full bg-cyan-500" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 text-sm text-gold-light border border-gold/20">
+                  <span className="w-2 h-2 rounded-full bg-gold" />
                   Remoto
                 </div>
               </div>
@@ -79,16 +82,16 @@ export default function About() {
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative p-6 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-cyan-500/50 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10 hover:-translate-y-1 overflow-hidden"
+                  className="group relative p-6 rounded-lg bg-surface border border-border hover:border-gold/40 transition-all duration-300 hover:shadow-lg hover:shadow-gold/5 hover:-translate-y-1 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="size-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/30 transition-all duration-300">
-                    <item.icon className="text-white" size={20} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="size-10 rounded-lg bg-gold/20 flex items-center justify-center mb-3 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-gold/20 transition-all duration-300">
+                    <item.icon className="text-gold" size={20} />
                   </div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1 relative z-10">
+                  <h3 className="font-semibold text-foreground mb-1 relative z-10">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 relative z-10">
+                  <p className="text-sm text-gray-400 relative z-10">
                     {item.description}
                   </p>
                 </div>

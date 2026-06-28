@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useRef } from "react";
-import { TypeAnimation } from "react-type-animation";
+import { useMemo } from "react";
+import { motion } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
-import { motion, useInView } from "framer-motion";
 import Magnetic from "./Magnetic";
 
 function seededRandom(seed: number) {
@@ -14,111 +13,43 @@ function seededRandom(seed: number) {
   };
 }
 
-function StaggeredText({ text, className }: { text: string; className: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  return (
-    <span ref={ref} className={className}>
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ opacity: 0, y: 40, rotateX: -90 }}
-          animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-          transition={{
-            duration: 0.4,
-            delay: 0.1 + i * 0.03,
-            ease: [0.25, 0.1, 0.25, 1],
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
+const particles = Array.from({ length: 20 }, (_, i) => {
+  const rng = seededRandom(i * 7 + 13);
+  return {
+    id: i,
+    x: rng() * 100,
+    y: rng() * 100,
+    size: rng() * 2 + 1,
+    duration: rng() * 10 + 12,
+    delay: rng() * 8,
+    driftX: (rng() - 0.5) * 30,
+    driftY: (rng() - 0.5) * 30 - 10,
+  };
+});
 
 export default function Hero() {
-  const particles = useMemo(() => {
-    const rng = seededRandom(42);
-    return Array.from({ length: 30 }, (_, i) => ({
-      id: i,
-      x: rng() * 100,
-      y: rng() * 100,
-      size: rng() * 4 + 1.5,
-      duration: rng() * 15 + 10,
-      delay: rng() * 5,
-      driftX: (rng() - 0.5) * 40,
-      driftY: (rng() - 0.5) * 40,
-    }));
-  }, []);
-
-  const connectedParticles = useMemo(() => {
-    const rng = seededRandom(99);
-    return Array.from({ length: 10 }, (_, i) => ({
-      id: i + 100,
-      x: rng() * 100,
-      y: rng() * 100,
-      size: rng() * 2 + 3,
-      duration: rng() * 8 + 12,
-      delay: rng() * 4,
-    }));
-  }, []);
-
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-16"
     >
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-500/8 via-transparent to-transparent" />
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-cyan-500/8 to-blue-500/8 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
-      </div>
-
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMSIgZmlsbD0icmdiYSgwLDAsMCwwLjA1KSIvPjwvc3ZnPg==')] dark:bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIyIiBjeT0iMiIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvc3ZnPg==')] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.02] to-transparent pointer-events-none" />
 
       <div className="absolute inset-0 pointer-events-none">
-        {connectedParticles.map((p) => (
-          <motion.div
-            key={p.id}
-            className="absolute rounded-full bg-cyan-400/15 dark:bg-cyan-400/8"
-            style={{
-              left: `${p.x}%`,
-              top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
-            }}
-            animate={{
-              y: [0, -20, -10, -30, 0],
-              x: [0, 10, -5, 15, 0],
-              opacity: [0.15, 0.5, 0.3, 0.6, 0.15],
-              scale: [1, 1.2, 0.9, 1.1, 1],
-            }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              delay: p.delay,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
         {particles.map((p) => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-blue-400/10 dark:bg-blue-400/5"
+            className="absolute rounded-full bg-gold/20"
             style={{
               left: `${p.x}%`,
               top: `${p.y}%`,
-              width: p.size,
-              height: p.size,
+              width: p.size * 2,
+              height: p.size * 2,
             }}
             animate={{
               y: [0, p.driftY],
               x: [0, p.driftX],
-              opacity: [0.1, 0.4, 0.1],
+              opacity: [0, 0.8, 0],
             }}
             transition={{
               duration: p.duration,
@@ -136,44 +67,34 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300 mb-6 border border-cyan-200 dark:border-cyan-800">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-gold/10 text-gold-light border border-gold/20 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
             Disponible para trabajar
           </div>
-        </motion.div>
-
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 text-balance">
-          Hola, soy{" "}
-          <StaggeredText
-            text="Juan Carlos"
-            className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient"
-          />
-        </h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 mb-8 h-8"
-        >
-          <TypeAnimation
-            sequence={[
-              "Desarrollador Full Stack",
-              2000,
-            ]}
-            wrapper="span"
-            speed={50}
-            repeat={Infinity}
-          />
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto mb-10 text-pretty"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-sm font-mono tracking-widest uppercase text-gold/60 mb-4"
         >
-          Construyo aplicaciones web modernas con tecnologías como Next.js, React y Node.js. Apasionado por crear soluciones funcionales y escalables.
+          Desarrollador Full Stack
+        </motion.p>
+
+        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-serif text-balance mb-6 leading-[1.1]">
+          <span className="text-foreground">Juan</span>{" "}
+          <span className="text-gold">Carlos</span>
+        </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="text-lg text-gray-400 max-w-xl mx-auto mb-10 text-pretty font-light leading-relaxed"
+        >
+          Construyo aplicaciones web modernas con Next.js, React y Node.js.
+          Apasionado por crear soluciones funcionales y escalables.
         </motion.p>
 
         <motion.div
@@ -185,16 +106,15 @@ export default function Hero() {
           <Magnetic>
             <a
               href="#projects"
-              className="group relative px-8 py-3 rounded-xl bg-gray-900 text-white dark:bg-white dark:text-gray-900 font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/25 dark:hover:shadow-cyan-400/20 active:scale-[0.96]"
+              className="group relative px-8 py-3 rounded-lg bg-gold text-[#0A0A0A] font-medium overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-gold/25 active:scale-[0.96]"
             >
               <span className="relative z-10">Ver Proyectos</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
           </Magnetic>
           <Magnetic>
             <a
               href="#contact"
-              className="px-8 py-3 rounded-xl border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:border-cyan-500/50 active:scale-[0.96]"
+              className="px-8 py-3 rounded-lg border border-gold/40 text-gold-light font-medium hover:bg-gold/10 transition-all duration-300 active:scale-[0.96]"
             >
               Contactar
             </a>
@@ -207,7 +127,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-gray-500 hover:text-gold transition-colors"
       >
         <HiArrowDown size={24} />
       </motion.a>

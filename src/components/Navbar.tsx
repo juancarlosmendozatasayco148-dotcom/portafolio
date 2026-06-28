@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { HiMenu, HiX } from "react-icons/hi";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Inicio", href: "#hero" },
@@ -27,7 +28,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl shadow-lg shadow-black/5 dark:shadow-white/5 border-b border-gray-200/50 dark:border-gray-800/50"
+          ? "bg-[#0A0A0A]/80 backdrop-blur-xl border-b border-gold/10"
           : "bg-transparent"
       }`}
     >
@@ -35,7 +36,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <a
             href="#hero"
-            className="text-xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent"
+            className="text-xl font-serif tracking-wide text-gold"
           >
             devCarlos
           </a>
@@ -45,12 +46,12 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg hover:bg-gray-100/80 dark:hover:bg-gray-800/80 transition-all"
+                className="px-3 py-2 text-sm font-medium text-gray-400 hover:text-gold-light rounded-lg hover:bg-gold/5 transition-all"
               >
                 {link.label}
               </a>
             ))}
-            <div className="ml-2 pl-2 border-l border-gray-200 dark:border-gray-800">
+            <div className="ml-2 pl-2 border-l border-border">
               <ThemeToggle />
             </div>
           </div>
@@ -60,7 +61,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-              className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors active:scale-[0.96]"
+              className="p-2 rounded-lg text-gray-400 hover:text-gold-light hover:bg-gold/5 transition-colors"
             >
               {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
             </button>
@@ -68,22 +69,29 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-          <div className="px-4 py-3 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#0A0A0A]/95 backdrop-blur-xl border-b border-gold/10 overflow-hidden"
+          >
+            <div className="px-4 py-3 space-y-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 text-sm font-medium text-gray-400 hover:text-gold-light rounded-lg hover:bg-gold/5 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
