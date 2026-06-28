@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import ThemeToggle from "./ThemeToggle";
+
 import { HiMenu, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -51,13 +51,9 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-            <div className="ml-2 pl-2 border-l border-border">
-              <ThemeToggle />
-            </div>
           </div>
 
           <div className="flex items-center gap-2 md:hidden">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
