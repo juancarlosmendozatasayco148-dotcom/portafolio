@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { HiArrowDown } from "react-icons/hi";
 import Magnetic from "./Magnetic";
 import ShinyText from "./ShinyText";
-import Aurora from "./Aurora";
+import FloatingLines from "./FloatingLines";
 
 export default function Hero() {
   return (
@@ -13,27 +13,20 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 pt-16"
     >
       <div className="absolute inset-0">
-        <Aurora
-          colorStops={["#C9A84C", "#A8882E", "#0A0A0A"]}
-          speed={0.5}
-          blend={0.3}
-          amplitude={0.8}
+        <FloatingLines
+          linesGradient={["#C9A84C", "#A8882E"]}
+          enabledWaves={["top", "bottom"]}
+          lineCount={4}
+          lineDistance={6}
+          animationSpeed={0.4}
+          interactive={false}
+          parallax={false}
+          mixBlendMode="screen"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gold/[0.03] to-transparent pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-gold/10 text-gold-light border border-gold/20 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-            Disponible para trabajar
-          </div>
-        </motion.div>
-
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
