@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import { useInView, motion } from "framer-motion";
 import { educationList } from "@/data/education";
 import { HiAcademicCap, HiCalendar } from "react-icons/hi";
 import AnimatedSection from "./AnimatedSection";
 
-function EducationCard({
+const EducationCard = memo(function EducationCard({
   edu,
   index,
 }: {
@@ -50,7 +50,7 @@ function EducationCard({
       </div>
     </motion.div>
   );
-}
+});
 
 export default function Education() {
   return (

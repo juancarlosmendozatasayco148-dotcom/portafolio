@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import { useInView, motion } from "framer-motion";
 import { experiences } from "@/data/experience";
 import { HiBriefcase, HiCalendar } from "react-icons/hi";
 import AnimatedSection from "./AnimatedSection";
 
-function TimelineItem({
+const TimelineItem = memo(function TimelineItem({
   exp,
   index,
 }: {
@@ -72,7 +72,7 @@ function TimelineItem({
       </div>
     </motion.div>
   );
-}
+});
 
 export default function Experience() {
   return (

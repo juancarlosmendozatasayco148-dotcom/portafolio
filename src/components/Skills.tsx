@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, memo } from "react";
 import { useInView, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 import AnimatedSection from "./AnimatedSection";
@@ -25,7 +25,7 @@ function AnimatedNumber({ value, isInView: inView }: { value: number; isInView: 
   return <span className="text-gray-400 tabular-nums">{displayed}%</span>;
 }
 
-function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
+const SkillBar = memo(function SkillBar({ name, level, index }: { name: string; level: number; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -51,7 +51,7 @@ function SkillBar({ name, level, index }: { name: string; level: number; index: 
       </div>
     </div>
   );
-}
+});
 
 export default function Skills() {
   return (

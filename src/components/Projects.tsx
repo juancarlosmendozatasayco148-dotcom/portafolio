@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, memo, useMemo } from "react";
 import { projects } from "@/data/projects";
 import { HiExternalLink, HiCode, HiX } from "react-icons/hi";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimatedSection, { childVariants } from "./AnimatedSection";
 
-function ProjectCard({ project, onClick }: { project: { id: string; title: string; description: string; image: string; tags: string[]; featured: boolean }; onClick: () => void }) {
+const ProjectCard = memo(function ProjectCard({ project, onClick }: { project: { id: string; title: string; description: string; image: string; tags: string[]; featured: boolean }; onClick: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -47,6 +47,7 @@ function ProjectCard({ project, onClick }: { project: { id: string; title: strin
           <img
             src={project.image}
             alt={project.title}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
@@ -93,14 +94,13 @@ function ProjectCard({ project, onClick }: { project: { id: string; title: strin
       </motion.div>
     </motion.div>
   );
-}
+});
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
-  const project = selectedProject
-    ? projects.find((p) => p.id === selectedProject)
-    : null;
+  const projectMap = useMemo(() => new Map(projects.map(p => [p.id, p])), []);
+  const project = selectedProject ? projectMap.get(selectedProject) ?? null : null;
 
   return (
     <section id="projects" className="py-20 px-4">
@@ -164,6 +164,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
