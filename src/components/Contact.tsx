@@ -17,7 +17,6 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
@@ -42,7 +41,6 @@ export default function Contact() {
               ¿Tienes un proyecto en mente? Hablemos.
             </p>
           </div>
-        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           <AnimatedSection delay={0.1}>

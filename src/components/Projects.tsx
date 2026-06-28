@@ -105,7 +105,6 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
@@ -130,7 +129,6 @@ export default function Projects() {
               Algunos de los proyectos en los que he trabajado
             </p>
           </div>
-        </AnimatedSection>
 
         <AnimatedSection stagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (

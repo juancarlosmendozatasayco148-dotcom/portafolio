@@ -38,7 +38,6 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <AnimatedSection>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
@@ -60,7 +59,6 @@ export default function Skills() {
             />
             <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
           </div>
-        </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
           <AnimatedSection delay={0.1} className="flex justify-center">

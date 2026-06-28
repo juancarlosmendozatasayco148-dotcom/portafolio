@@ -27,31 +27,31 @@ const highlights = [
 
 export default function About() {
   return (
-    <AnimatedSection>
-      <section id="about" className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
-              <span className="text-xs font-semibold tracking-widest uppercase text-gold">
-                Acerca de
-              </span>
-              <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
-            </div>
-            <SplitText
-              text="Sobre Mí"
-              tag="h2"
-              splitType="words"
-              className="text-3xl sm:text-4xl font-serif text-balance mb-4"
-              from={{ opacity: 0, y: 30 }}
-              to={{ opacity: 1, y: 0 }}
-              delay={80}
-              duration={1}
-              textAlign="center"
-            />
-            <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
+    <section id="about" className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 mb-3">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold/60" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-gold">
+              Acerca de
+            </span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold/60" />
           </div>
+          <SplitText
+            text="Sobre Mí"
+            tag="h2"
+            splitType="words"
+            className="text-3xl sm:text-4xl font-serif text-balance mb-4"
+            from={{ opacity: 0, y: 30 }}
+            to={{ opacity: 1, y: 0 }}
+            delay={80}
+            duration={1}
+            textAlign="center"
+          />
+          <div className="w-16 h-0.5 bg-gold/40 mx-auto" />
+        </div>
 
+        <AnimatedSection>
           <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             <div className="space-y-4">
               <p className="text-gray-400 leading-relaxed text-lg text-pretty font-light">
@@ -107,8 +107,8 @@ export default function About() {
               ))}
             </div>
           </div>
-        </div>
-      </section>
-    </AnimatedSection>
+        </AnimatedSection>
+      </div>
+    </section>
   );
 }
